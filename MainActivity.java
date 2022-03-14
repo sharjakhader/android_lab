@@ -1,45 +1,48 @@
-package com.sharja.backgroundcolor;
+package com.sharja.addtwonumbers;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.RelativeLayout;
-import android.widget.ToggleButton;
-import android.widget.CompoundButton;
+import  android.view.View.OnClickListener;
+import  android.widget.Button;
+import  android.widget.EditText;
+import  android.widget.TextView;
+
 
 public class MainActivity extends Activity {
+	EditText n1,n2;
+	Button b1;
+	TextView res;
+	int a,b,sum;
 	
-	ToggleButton t;
-	RelativeLayout rl;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t=(ToggleButton)findViewById(R.id.toggleButton1);
-        rl=(RelativeLayout)findViewById(R.id.relativelayout);
-        t.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				// TODO Auto-generated method stub
-				if(t.isChecked()){
-				rl.setBackgroundColor(android.graphics.Color.BLACK);
-				}else{
-					rl.setBackgroundColor(android.graphics.Color.WHITE);
-				}
-			}
-		});
-    }
+        n1=(EditText)(findViewById(R.id.txtNum1));
+        n2=(EditText)(findViewById(R.id.txtNum2));
+        res=(TextView)(findViewById(R.id.txtResult));
+        b1=(Button)(findViewById(R.id.btnAdd));
+        b1.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View v ) {
+        		if(n1.length()>0 && n2.length()>0)
+        		{
+        			a=Integer.parseInt(n1.getText().toString());
+        		    b=Integer.parseInt(n2.getText().toString());
+        	        sum=a+b;
+        	        res.setText("Sum is "+sum);
+        }
+        else
+        	res.setText("Input please!");
+       }
+  });
+  
+  }
+  }
+
+        		
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    
-}
+   
