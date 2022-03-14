@@ -2,13 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dcs.sharja.spinner.MainActivity" >
+    android:orientation="vertical"
+    tools:context="dcs.sharja.radiobutton.MainActivity" >
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your Gender" />
+    
+    <RadioGroup
+        android:id="@+id/rdGender"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        
+                <RadioButton
+                    android:id="@+id/rdMale"
+                    android:text="male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+        
+                  /> 
+                <RadioButton
+                     android:id="@+id/rdFemale"
+                     android:text="Female"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+        
+        />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/txtGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+        />
+        </LinearLayout>    
 
-    <Spinner
-        android:id="@+id/mySpin"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:spinnerMode="dropdown"
-        /> 
-
-</LinearLayout>
+    

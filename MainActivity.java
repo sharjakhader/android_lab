@@ -1,36 +1,47 @@
-package com.sharja.spinner;
+package com.sharja.radiobutton;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+
+
+
 
 public class MainActivity extends Activity {
-	Spinner spin;
-	private String[] spinArray;
 	
+	   RadioButton rm,rf;
+	   RadioGroup rg;
+	   TextView t;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+	   @Override
+     protected void onCreate(Bundle savedInstanceState) {    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        spin=(Spinner)findViewById(R.id.mySpin);
-        
-        this.spinArray = new String[] {"java", "python", "php", "perl"};
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-        		android.R.layout.simple_spinner_item, spinArray);
-        spin.setAdapter(adapter);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    
-    
+        rm=(RadioButton)findViewById(R.id.rdMale);
+        rf=(RadioButton)findViewById(R.id.rdFemale);
+        t=(TextView)findViewById(R.id.txtGender);
+        rg=(RadioGroup)findViewById(R.id.rdGender);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+			
+        	
+        	@Override
+        	public void onCheckedChanged(RadioGroup group,int checkedid){
+        		if(rm.isChecked())
+        		{
+        			t.setText("you are a man");
+        		}
+        		if(rf.isChecked())
+        		{
+        			t.setText("you are now a women");
+        		}
+        		
+        		}
+        	});
+        }
 }
+
+
+   
