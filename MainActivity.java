@@ -1,39 +1,37 @@
-package com.sharja.backgroundimage;
+package com.sharja.backgroundcolor;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
-import android.view.View.OnClickListener;
+import android.widget.CompoundButton;
 
 public class MainActivity extends Activity {
 	
+	ToggleButton t;
 	RelativeLayout rl;
-	ToggleButton b;
-	
-	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        t=(ToggleButton)findViewById(R.id.toggleButton1);
         rl=(RelativeLayout)findViewById(R.id.relativelayout);
-        b=(ToggleButton)findViewById(R.id.toggleButton1);
-        b.setOnClickListener(new OnClickListener() {
+        t.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			
 			@Override
-			public void onClick(View arg0) {
+			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 				// TODO Auto-generated method stub
-				if(b.isChecked()){
-				rl.setBackgroundResource(R.drawable.image1);
+				if(t.isChecked()){
+				rl.setBackgroundColor(android.graphics.Color.BLACK);
 				}else{
-					rl.setBackgroundResource(R.drawable.image2);
+					rl.setBackgroundColor(android.graphics.Color.WHITE);
 				}
 			}
 		});
-        
     }
 
 
