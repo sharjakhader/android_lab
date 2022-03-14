@@ -1,23 +1,23 @@
-package com.sharja.listview;
+package com.sharja.dateandtime;
 
-import android.os.Bundle;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import android.app.Activity;
-import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment; 
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 	
-	ListView list;
-	String[] listArray= {"Java","Kotlin","XML","Flutter","React","Angular","Vue","Xamarin"};
+    butto b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list=(ListView)findViewById(R.id.listView1);
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,
-        		android.R.layout.simple_spinner_dropdown_item,listArray);
-        list.setAdapter(adapter);
     }
 
 
