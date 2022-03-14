@@ -1,41 +1,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="dcs.sharja.radiobutton.MainActivity" >
-    
-    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Number" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select your Gender" />
-    
-    <RadioGroup
-        android:id="@+id/rdGender"
-         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-        
-                <RadioButton
-                    android:id="@+id/rdMale"
-                    android:text="male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" 
-        
-                  /> 
-                <RadioButton
-                     android:id="@+id/rdFemale"
-                     android:text="Female"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-        
-        />
-        </RadioGroup>
-        <TextView
-            android:id="@+id/txtGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            
-        />
-        </LinearLayout>    
+        android:layout_gravity="center"
+        android:text="Submit" />
 
-    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiplication Table,"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>
