@@ -1,20 +1,31 @@
-package com.sharja.alertbox;
+package com.Noushiba.test1;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.Toast;
 
-   public class MainActivity extends Activity {
-	   
-	   Button b;
-	   @Override
-	   protected void onCreate(Bundle savedInstanceState) {
-		   super.onCreate(savedInstaceState);
-		   set
-	   }
-   }
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+        
+     }
+    @Override
+      protected void onResume(){
+    	Toast.makeText(getApplicationContext(),"Hello world!",Toast.LENGTH_LONG).show();
+    	super.onResume();
+    
+    }
+    
+}
