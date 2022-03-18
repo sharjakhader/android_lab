@@ -1,47 +1,52 @@
-package com.samad.edittextevent;
+package com.jasmin.dateandtime;
 
-import android.os.Bundle;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import android.app.Activity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Menu;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	EditText editText;
-	TextView textView;
+	
+	Button b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView=(TextView)findViewById(R.id.textView1);
-        editText=(EditText)findViewById(R.id.editText1);
-        editText.addTextChangedListener(new TextWatcher() {
-			
-			@Override
-			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-				// TODO Auto-generated method stub
-				String text=editText.getText().toString();
-				textView.setText(text);
-			}
-			
-			@Override
-			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-					int arg3) {}
-			
-			@Override
-			public void afterTextChanged(Editable arg0){}
-		});
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        b=(Button)findViewById(R.id.btnDialog);
+        b.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View v) {
+        		ShowDateTimeDialog DT=new ShowDateTimeDialog();
+        		DT.show(getFragmentManager(),null);
+        		
+        	}
+        });
     }
     
+   
+    public class ShowDateTimeDialog extends DialogFragment {
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+       Calendar c = Calendar.getInstance();
+       SimpleDateFormat sdf=new SimpleDateFormat("dd-MMMM-yyy HH:mm:ss");
+       String strDate= sdf.format(c.getTime());
+       AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+       builder.setTitle("Date and Time");
+       builder.setMessage(strDate);
+       builder.setNeutralButton("OK", null);
+       return builder.create();
+    }
+    }
 }
+       
+    
+    
+
