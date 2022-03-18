@@ -1,52 +1,27 @@
-package com.jasmin.dateandtime;
+package com.shadiya.imageview;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ImageView;
 
 public class MainActivity extends Activity {
+	ImageView im;
 	
-	Button b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        b=(Button)findViewById(R.id.btnDialog);
-        b.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View v) {
-        		ShowDateTimeDialog DT=new ShowDateTimeDialog();
-        		DT.show(getFragmentManager(),null);
-        		
-        	}
-        });
+        im=(ImageView)findViewById(R.id.imageView1);
+        im.setImageResource(R.drawable.rb1);
+    }
+
+
+    @Override    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
     
-   
-    public class ShowDateTimeDialog extends DialogFragment {
-
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-       Calendar c = Calendar.getInstance();
-       SimpleDateFormat sdf=new SimpleDateFormat("dd-MMMM-yyy HH:mm:ss");
-       String strDate= sdf.format(c.getTime());
-       AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-       builder.setTitle("Date and Time");
-       builder.setMessage(strDate);
-       builder.setNeutralButton("OK", null);
-       return builder.create();
-    }
-    }
 }
-       
-    
-    
-
